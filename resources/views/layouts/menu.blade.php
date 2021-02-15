@@ -18,11 +18,11 @@
                     <hr style="border: px solid #2a2c35; width: 94%; margin-left: 0;">
                     @if(Request::is("/")) 
                     <li class="g_heading mb-2">Modulos</li>
-                        @canany(['universal', 'equipos'])
+                        @canany(['universal', 'products'])
                             <li>
-                                <a href="{{ route('productos') }}">
+                                <a href="{{ route('products') }}">
                                     <i class="fa fa-gears"></i>
-                                        <span data-hover="C-P">Categorias-Productos</span>
+                                        <span data-hover="Productos">Categorias-Productos</span>
                                 </a>
                             </li>
                         @endcanany
@@ -31,25 +31,24 @@
 
                     <!--Menú equipos-->
 
-                    @if(Request::is("productos")) 
+                    @if(Request::is("products")) 
                         <li class="g_heading mb-2">Categorías de productos</li>
                         @canany(['universal', 'equipos'])
                         <li>
-                            
-                            @foreach($categorias as $categoria)
-                                <a href="/productos/{{$categoria->Categoria}}/{{$categoria->id}}">
+                            @foreach($categories as $categorie)
+                                <a href="/products/{{$categorie->category}}/{{$categorie->id}}">
                                     <i class="fa fa-ellipsis-h"></i>
-                                    <span data-hover="{{$categoria->Categoria}}">{{$categoria->Categoria}}</span>
+                                    <span data-hover="{{$categorie->category}}">{{$categorie->category}}</span>
                                 </a>
                             @endforeach
                             
                         </li>
                         @endcanany 
                 
-                        @canany(['universal', 'equipos'])
+                        @canany(['universal', 'products'])
                             <hr style="border: px solid #2a2c35; width: 94%; margin-left: 0;">
                                 <li>
-                                    <a href="/productos/nuevo_inventario"><i class="fa fa-plus-square" aria-hidden="true"></i><span data-hover="N. Producto">Nuevo Producto</span></a>
+                                    <a href="/products/new_inventory"><i class="fa fa-plus-square" aria-hidden="true"></i><span data-hover="N. Producto">Nuevo Producto</span></a>
                                 </li>
                             <hr style="border: px solid #2a2c35; width: 94%; margin-left: 0;">
                         @endcanany

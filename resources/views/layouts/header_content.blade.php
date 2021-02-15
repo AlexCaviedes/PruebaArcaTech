@@ -7,7 +7,7 @@
                 <div class="left">
                     <h1 class="page-title">@yield('title_content')</h1>
                 </div>
-                {{--<div class="right">
+                <div class="right">
                     <div class="notification d-flex">
                         <a class="btn btn-facebook" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-power-off mr-2 font-size-16 align-middle mr-1"></i> Salir</a>
 
@@ -15,7 +15,7 @@
                             @csrf
                         </form>
                     </div>
-                </div>--}}
+                </div>
             </div>
         </div>
     </div>

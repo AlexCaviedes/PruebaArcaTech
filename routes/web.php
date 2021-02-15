@@ -2,10 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-use Carbon\Carbon;
-use App\Categoria;
-use App\Referencia;
-use App\Producto;
+use App\Category;
+use App\Reference;
+use App\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,26 +23,19 @@ Auth::routes(['register' => false]);
 Route::get('/', 'HomeController@index')->name('home');
 
 // Rutas para Productos
-Route::group(['middleware' => ['permission:equipos|universal']], function () {
-    Route::resource('/nuevo','ProductosController');
-    Route::get('/productos/nuevo_inventario','ProductosController@nuevo');
-    Route::post('/productos/insertar_categoria','ProductosController@insertarCategoria');
-    Route::get('/productos/editar/{id}','ProductosController@editar')->name('modificar');
-    Route::post('/modificar/{id}','ProductosController@update')->name('update');
-    Route::get('/productos/{categoria}/{id}','ProductosController@productos');
-    Route::delete('eliminar/{id}','ProductosController@eliminar')->name('EliminarProducto');
-    Route::get('/productos/ver_producto/{categoria}/{id}', 'ProductosController@verProducto');
-    Route::post('/productos/vender_producto/{categoria}/{id}', 'ProductosController@venderProducto');
-    Route::get('/productos','ProductosController@index')->name('productos');
-    Route::post('/productos/imprimir_factura/{id}/{categoria}/{id}','ProductosController@imprimir');
-    Route::get('/productos/{id}','ProductosController@busqueda')->name('busqueda'); 
+Route::group(['middleware' => ['permission:products|universal']], function () {
+    Route::resource('/new','ProductController');
+    Route::get('/products/new_inventory','ProductController@getNew');
+    Route::post('/products/insert_categori','ProductController@postInsertCategory');
+    Route::get('/products/{id}/edit','ProductController@getEdit')->name('modify');
+    Route::post('/{id}/modify','ProductController@postUpdate')->name('update');
+    Route::get('/products/{category}/{id}','ProductController@getProducts');
+    Route::delete('{id}/delete','ProductController@delete')->name('delete');
+    Route::get('/products/see_product/{category}/{id}', 'ProductController@getSeeProduct');
+    Route::post('/products/{id}/sell_producto', 'ProductController@postSellProduct');
+    Route::get('/products','ProductController@index')->name('products');
+    Route::post('/products/{id}/print_invoice','ProductController@postInvoice');
+    Route::get('/{id}/products','ProductController@getSearch')->name('search');
+    
 });
 
-
-// Rutas para Servicio Especial
-Route::group(['middleware' => ['permission:servicio especial|universal']], function () {
-    Route::get('/servicio-especial', 'ServicioEspecialController@index')->name('servicio-especial');
-    Route::get('/servicio-especial/crear', 'ServicioEspecialController@crear');
-    Route::post('/servicio-especial/create', 'ServicioEspecialController@create');
-    Route::get('/servicio-especial/ver_contrato/{id}', 'ServicioEspecialController@ver_contrato')->name('ver-contrato');
-});

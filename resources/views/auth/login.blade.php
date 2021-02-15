@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta name="description" content="Dashboard administrador Cootranshuila LTDA">
-    <meta name="author" content="Cootranshuila Devs Team">
+    <meta name="description" content="Dashboard administrador ArcaTech">
+    <meta name="author" content="ArcaTech Devs Team">
 
 <link rel="icon" href="favicon.ico" type="image/x-icon"/>
 
@@ -67,6 +67,10 @@
                     <button type="submit" class="btn btn-success btn-lg btn-block" title="">Ingresar</button>
                 </div>
             </form>
+            <br>
+            <a href="register" type="button" class="btn btn-success btn-lg btn-block" title="register">
+                <i class="fa fa-user-plus"></i>
+            </a>
 
         </div>
         <hr style="border: 1px solid #fff;">

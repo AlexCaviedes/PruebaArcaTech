@@ -62,15 +62,16 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary ">
                                     {{ __('Register') }}
+                                    <i class="fa fa-user-plus"></i>
                                 </button>
-                            </div>
-                        </div>
                     </form>
+                    <br>
+                    <a href="login" type="button" class="btn btn-success " title="Volver a login">
+                        Volver a Login
+                        <i class="fa fa-user-plus"></i>
+                    </a>
                 </div>
             </div>
         </div>
